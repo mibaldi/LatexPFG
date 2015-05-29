@@ -75,7 +75,7 @@ En ese momento la asignatura se modificara en la base de datos y al usuario se l
 Aparte de Modificar asignatura se puede \textbf{Borrar asignatura}:
 Con esta opción el usuario hará lo mismo que en el caso de modificar asignatura pero en vez de mostrarle la nueva ventana con los datos de la asignatura ahora le saldrá un mensaje de si está seguro que desea borrarla. 
 Al decir que si el usuario la asignatura se borrara o devolverá un mensaje de error informando el motivo por el que no se ha podido borrar.
-Solo se permite borrar asignatura que no tengan exámenes dentro, esto se decidió así ya que si no supondría un borrado en cascada y el coste que produciría eso sería muy costoso ya que también se tendrían que borrar los eventos en el calendario de google de todos los exámenes de esa asignatura.
+Solo se permite borrar asignatura que no tengan exámenes dentro, esto se decidió así ya que si no supondría un borrado en cascada y el coste que produciría eso sería muy costoso ya que también se tendrían que borrar los eventos en el calendario de Google de todos los exámenes de esa asignatura.
 
 \begin{figure}[H]
  \centering
@@ -113,7 +113,7 @@ Siendo la nota obtenida la suma de los exámenes y la total la nota guardada al 
   \caption{Actividad Crear Examen}
 \end{wrapfigure}
 Dentro de los casos de uso de examen podemos encontrar el de \textbf{Crear Examen}:
-Al usuario se le permitirá crear un examen mediante un formulario donde tendrá que seleccionar la asignatura del examen y en caso de darle permisos de google calendar a la aplicación se le mostraran los calendarios de google de la cuenta seleccionada.
+Al usuario se le permitirá crear un examen mediante un formulario donde tendrá que seleccionar la asignatura del examen y en caso de darle permisos de Google Calendar a la aplicación se le mostraran los calendarios de Google de la cuenta seleccionada.
 
 Aparte tendrá que escribir un nombre para el examen,  y si desea podrá escribir una descripción donde añadiría el temario que entra o texto interesante del examen.
 También hay un apartado donde podrá seleccionar la fecha que será el examen y la hora de inicio.
@@ -121,7 +121,7 @@ Para terminar el formulario el usuario tendrá que poner sobre cuanto se evaluar
 
 Hay dos formas en las que se podrá guardar un examen:
 En local: Si el usuario no dispone de internet la lógica de negocio hará que se cree el examen en la base de datos únicamente.
-En Ambos: Si el usuario dispone de internet se creara un evento de examen en el calendario de google escogido  y se almacenara también en la base de datos.
+En Ambos: Si el usuario dispone de internet se creara un evento de examen en el calendario de Google escogido  y se almacenara también en la base de datos.
 
 En la actividad de \textbf{Ver lista de exámenes} funciona de la siguiente manera:
 Se muestran mediante la clase ExpandableList las asignaturas donde hay exámenes creados, para agrupar los exámenes se ha escogido la asignatura para hacer más legible y más ordenada la lista.
@@ -134,7 +134,7 @@ Aparte de modificar datos del objeto examen también se podrá acceder al caso d
 \textbf{Ver examen}, este caso de uso es muy parecido al caso de uso de ver asignatura, se mostrara los campos del examen que se quiere ver.
 También dará acceso a los casos de uso de Modificar Examen y Borrar examen.
 
-Y para acabar los casos de uso referentes a examen tenemos \textbf{Borrar Examen}, este caso de uso trata de realizar el borrado de un examen tanto de la base de datos del dispositivo como de google calendar, en el caso que google calendar de fallo solo lo borrara de manera local y será el usuario quien tendrá que borrar el evento del google calendar.
+Y para acabar los casos de uso referentes a examen tenemos \textbf{Borrar Examen}, este caso de uso trata de realizar el borrado de un examen tanto de la base de datos del dispositivo como de Google Calendar, en el caso que Google Calendar de fallo solo lo borrara de manera local y será el usuario quien tendrá que borrar el evento del Google Calendar.
 A este caso de uso se llega desde la actividad de ver examen y es un botón al final del layout.
 
 \subsubsection{Casos de uso sobre Nota}
@@ -148,12 +148,12 @@ Estos cosas de uso trabajan sobre el objeto Nota, los dos casos de uso modifican
 
 Dentro de los casos de uso generales se hablara sobre los casos de uso que se pueden realizar sin estar usando los objetos que se han trabajado en el proyecto, la mayoría son casos de uso relacionados con APIs de Google o solamente son pantallas de ayuda para el usuario.
 
-Para empezar el caso de uso fundamental si se quiere usar los servicios de google, \textbf{Escoger cuenta de google}, en este caso de uso el usuario podrá escoger que cuenta usara tanto para el google calendar, donde cogerá los calendarios para crear los exámenes y aparte la cuenta donde se quiere guardar el backup de la base de datos.
+Para empezar el caso de uso fundamental si se quiere usar los servicios de Google, \textbf{Escoger cuenta de Google}, en este caso de uso el usuario podrá escoger que cuenta usara tanto para el Google Calendar, donde cogerá los calendarios para crear los exámenes y aparte la cuenta donde se quiere guardar el backup de la base de datos.
 
-\textbf{Casos de uso vinculados a Google Calendar}, estos casos de uso son muy variados y son los que google da de ejemplo a la hora de usar Google calendar, se dejaron en la aplicación ya que son útiles a la hora de realizar modificaciones en los calendarios de google sin tener que estar metiéndose expresamente.
+\textbf{Casos de uso vinculados a Google Calendar}, estos casos de uso son muy variados y son los que Google da de ejemplo a la hora de usar Google Calendar, se dejaron en la aplicación ya que son útiles a la hora de realizar modificaciones en los calendarios de Google sin tener que estar metiéndose expresamente.
 Alguno de los casos de uso vinculados son, la creación de un calendario, ver la lista de los calendarios, modificar un calendario, borrar un calendario, y triplicar un calendario. También da la opción de visualizar un calendario, donde sí se usa la opción se mostrara el nombre del calendario y se dará la posibilidad de modificarlo.
  
-\textbf{Casos de uso vinculados a Google Drive}, para la realización del backup se usa el api de google drive, hay dos casos principales que son el de exportar e importar la base de datos.
+\textbf{Casos de uso vinculados a Google Drive}, para la realización del backup se usa el api de Google Drive, hay dos casos principales que son el de exportar e importar la base de datos.
 En el caso de uso de exportar el usuario escoge la carpeta donde quiere guardar la base de datos y también se le da la opción de crear una carpeta nueva.
 Y después el usuario pulsara el botón de exportar base de datos para que se realice una copia en Google Drive de la base de datos en ese momento.
 Para el caso de uso de importar el funcionamiento es muy parecido, el usuario selecciona la base de datos que quiere importar y una vez que tiene seleccionado el fichero solo tiene que darle al botón para realizar el borrado de la antigua base de datos y la copia al dispositivo de la guardada.

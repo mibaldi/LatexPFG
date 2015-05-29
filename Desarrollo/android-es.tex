@@ -33,7 +33,7 @@ Si se tiene todo lo anterior programar en Android no resultara complicado. Al pr
 \subsection{Restricciones de API}
 \label{subsecc:Restricciones de API}
 
-Ya he comentado anteriormente que Google ha ganado terreno en el mercado de los móviles por su labor en la desfragmentación de Android, aun con la labor de google nos seguimos encontrando que si no cogemos las versiones antiguas de Android y solo desarrollamos para las nuevas quitaremos una parte importante de los usuarios.
+Ya he comentado anteriormente que Google ha ganado terreno en el mercado de los móviles por su labor en la desfragmentación de Android, aun con la labor de Google nos seguimos encontrando que si no cogemos las versiones antiguas de Android y solo desarrollamos para las nuevas quitaremos una parte importante de los usuarios.
 
 \begin{figure}[H] 
   \begin{center} 
@@ -59,7 +59,7 @@ El problema surge cuando se quiere usar este diseño en APIs más bajas, Google 
   \end{center} 
 \end{figure}
 
-En la imagen mostrada arriba se puede apreciar cómo funcionan los colores en Android desde la versión 21, en cambio si se quiere conseguir algo parecido a eso hay que implementar clases que hagan lo mismo, y no se puede basar solo en las librerías de compatibilidad que ofrece google.
+En la imagen mostrada arriba se puede apreciar cómo funcionan los colores en Android desde la versión 21, en cambio si se quiere conseguir algo parecido a eso hay que implementar clases que hagan lo mismo, y no se puede basar solo en las librerías de compatibilidad que ofrece Google.
 Un componente que agrego el api 21 fue la toolbar que como se pude ver también permite cambiar el color de la barra donde se encuentra la hora, etc…
 En el api 10 el resultado final es muy parecido pero se invierte bastante tiempo, que si el diseño no es primordial, molesta gastarlo agregando colores.
 
@@ -82,7 +82,7 @@ De las versiones ya se ha hablado en un tema anterior, ahora en este apartado se
 \end{figure}
 
 Estos datos los proporciona Google, actualizado en mayo de 2015.
-Se puede apreciar las distintas gamas que hay de dispositivos. A la hora de crear el proyecto si se usa Android Studio te ayudara un poco con estos temas preguntándote hacia que dispositivo va destinada la aplicación y tendrás que elegir entre móviles o tablets, televisión, aparatos wear de Android, o las google glass.
+Se puede apreciar las distintas gamas que hay de dispositivos. A la hora de crear el proyecto si se usa Android Studio te ayudara un poco con estos temas preguntándote hacia que dispositivo va destinada la aplicación y tendrás que elegir entre móviles o tablets, televisión, aparatos wear de Android, o las Google glass.
 Dependiendo de la elección se escoja en ese momento se modificaran automáticamente los ajustes para que esté preparado para el dispositivo seleccionado.
 Baldugenda es una aplicación destinada a móviles y tablets ya que su uso está pensado para ser algo habitual y de acceso rápido.
 Las aplicaciones que se desarrollan del estilo de Baldugenda suelen ser para móviles también ya que tienen que hacer la función de agenda virtual. Eso no quita para que también haya widgets de esas aplicaciones compatibles con dispositivos como los smartwatch donde se reciben las notificaciones de las aplicaciones de este género.
@@ -146,7 +146,7 @@ El modelo se podría trasladar directamente a IOS y la parte de la vista y contr
 Cuando se habla de migraciones siempre se viene a la cabeza cambio de sistema operativo y cosas así, pero también una migración podría ser el salto de una aplicación móvil a un dispositivo wear de Android o a una pantalla de televisión. Para eso el cambio vendría a ser muy parecido pero pudiendo usar gran parte del código exceptuando cosas como la parte de la vista y la conexión entre la vista y la lógica.
 Un punto importante que hay que tener en cuenta a la hora de migrar no es solo instalar la aplicación en un nuevo dispositivo, hay que pensar en los usuarios y permitirles llevarse todo lo realizado hasta el momento en la aplicación anterior a la nueva.
 Hay aplicaciones que guardan la información en sus propios servidores y ese paso es transparente para el usuario.
-En cambio en el caso de Baldugenda al no usar ningún servidor exceptuando el de google calendar para guardar los exámenes, se decidió poder migrar los datos mediante la opción de exportar base de datos y usar la cuenta de google para pasar de un dispositivo a otro.
+En cambio en el caso de Baldugenda al no usar ningún servidor exceptuando el de Google Calendar para guardar los exámenes, se decidió poder migrar los datos mediante la opción de exportar base de datos y usar la cuenta de Google para pasar de un dispositivo a otro.
 
 \subsection{Notificaciones}
 \label{subsecc:Notificaciones}
@@ -195,12 +195,12 @@ Dependiendo de la versión del dispositivo estas  ventanas modales serán de una
 \end{figure}
 
 A la izquierda podemos ver el datepicker en la versión de lollipop y a la derecha un una versión anterior.
-Para el manejo de los días se usa la clase calendar de java y eso ha venido muy bien ya que google calendar sus funciones permiten directamente meter una fecha creada en un objeto calendar al evento.
+Para el manejo de los días se usa la clase Calendar de java y eso ha venido muy bien ya que Google Calendar sus funciones permiten directamente meter una fecha creada en un objeto Calendar al evento.
 De esa forma el trabajo que nos hubiera supuesto tener que sacar la fecha actual calcular cuánto falta hasta la fecha elegida por el usuario y demás, se quita y solo teníamos que sacar la información que seleccionaba el usuario e insertarla en el evento.
-Aparte de estas notificaciones tenemos  una muy importante si se va trabajar con servicios de google que es el progress dialog.
-Este tipo de componente es muy útil con estos servicios ya que al usar los servicios de google hay veces que las conexiones tienen que hacerse en segundo plano y hay que lanzar tareas asíncronas, pero se sigue dependiendo del resultado del servicio para seguir trabajando.
+Aparte de estas notificaciones tenemos  una muy importante si se va trabajar con servicios de Google que es el progress dialog.
+Este tipo de componente es muy útil con estos servicios ya que al usar los servicios de Google hay veces que las conexiones tienen que hacerse en segundo plano y hay que lanzar tareas asíncronas, pero se sigue dependiendo del resultado del servicio para seguir trabajando.
 Con este componente se genera una barra de progreso que se ira rellenando según avance la tarea asíncrona o directamente un mensaje que no dejara realizar ninguna otra acción hasta la finalización de la tarea asíncrona.
-En Baldugenda se le ha dado uso al realizar la búsqueda de los calendarios y al realizar la creación de exámenes, porque dependiendo de la velocidad que tenga el móvil por internet, puede que el servicio de google calendar no vaya lo más rápido que debería y dé error si dejamos que se genere en la ventana secundaria sin avisar al usuario. 
+En Baldugenda se le ha dado uso al realizar la búsqueda de los calendarios y al realizar la creación de exámenes, porque dependiendo de la velocidad que tenga el móvil por internet, puede que el servicio de Google Calendar no vaya lo más rápido que debería y dé error si dejamos que se genere en la ventana secundaria sin avisar al usuario. 
 
 \begin{figure}[H] 
   \begin{center} 
@@ -233,11 +233,11 @@ Una de las mejoras que se tiene pendiente en Baldugenda es la visualización de 
 
 Como se puede observar en la imagen esa sería un tipo de ventana que se quiere implementar en la aplicación Baldugenda para mostrar por días los exámenes que se tienen apuntados.
 Por falta de tiempo no se realizó, aunque si se tenían propuestas librerías para realizar este tipo de vista como puede ser caldroid una librería con copyright disponible en github que ofrece las funciones necesarias y el diseño, para mostrar el calendario de esta forma y poder generar eventos y marcarlos de colores.
-Aun y todo se seguiría usando google calendar para mantener consistencia a los calendarios del usuario y que tenga acceso siempre a los eventos que se generan dentro del móvil.
-Android ofrece su propio componente de vista de calendario, el calendar view, el problema que se encontró al usarlo es las limitaciones visuales que tiene, se buscaba al usar ese vista mostrar los exámenes que había en el mes, y con calendar view no se podía agregar eventos a los días del calendario.
+Aun y todo se seguiría usando Google Calendar para mantener consistencia a los calendarios del usuario y que tenga acceso siempre a los eventos que se generan dentro del móvil.
+Android ofrece su propio componente de vista de calendario, el Calendar view, el problema que se encontró al usarlo es las limitaciones visuales que tiene, se buscaba al usar ese vista mostrar los exámenes que había en el mes, y con Calendar view no se podía agregar eventos a los días del calendario.
 Por ese motivo se decidió dejar el tema de la vista del calendario como algo secundario y centrarse en cosas más importantes como el backup
 Se ha probado a instalar muchas aplicaciones que tienen la finalidad de guardar asignaturas y exámenes en el móvil junto con sus fechas pero el resultado siempre era el mismo exceptuando alguna que era de pago y que en su versión gratuita no te permitía hacerlo pero en la versión de pago si, las de más aplicaciones funcionaban en local y algunas te daban la posibilidad de exportar los calendarios a la tarjeta sd del móvil por si querías usarlos.
-De esta forma se propuso la idea de vincular google calendar a la aplicación y darle un toque novedoso.
+De esta forma se propuso la idea de vincular Google Calendar a la aplicación y darle un toque novedoso.
 
 \subsection{Tareas asíncronas}
 \label{subsecc:Tareas asíncronas}
@@ -274,13 +274,13 @@ A continuación se muestra el ciclo de vida de una asynctask
 \subsection{Backup}
 \label{subsecc:Backup}
 
-Aunque ya se ha hablado de este tema en el apartado de google, el tema del backup en Android es un asunto muy importante, la mayoría de aplicaciones tienen algún método para guardar la información que genera el usuario.
-Algunas aplicaciones hacen uso del api comentada anteriormente para realizar el backup que ofrece google, la ventaja de esta propuesta es que la información estará guardada y se podrá recuperar la siguiente vez que el usuario quiera instalar la aplicación.
+Aunque ya se ha hablado de este tema en el apartado de Google, el tema del backup en Android es un asunto muy importante, la mayoría de aplicaciones tienen algún método para guardar la información que genera el usuario.
+Algunas aplicaciones hacen uso del api comentada anteriormente para realizar el backup que ofrece Google, la ventaja de esta propuesta es que la información estará guardada y se podrá recuperar la siguiente vez que el usuario quiera instalar la aplicación.
 Otras aplicaciones realizan los backups directamente sobre el dispositivo, usando la tarjeta SD para guardar la información y de esta forma en el caso que el dispositivo se averíe hay una base de datos consistente que se podrá importar.
-Al realizar la aplicación, en los primeros casos de uso no se le dio importancia a los backups pero después de circunstancias como fue en mí caso que se me estropeo el móvil, lo hechas en falta. La buena noticia fue que al tener vinculado con google Calendar todos los exámenes podía saber la fecha que tenían al mirar por la web.
+Al realizar la aplicación, en los primeros casos de uso no se le dio importancia a los backups pero después de circunstancias como fue en mí caso que se me estropeo el móvil, lo hechas en falta. La buena noticia fue que al tener vinculado con Google Calendar todos los exámenes podía saber la fecha que tenían al mirar por la web.
 Para que una aplicación sea útil tiene que permitir al usuario llevarse la información entre dispositivos y si por alguna circunstancia se desinstala la aplicación, que pueda instalarla de nuevo con la información que tenía anteriormente.
 Hay aplicaciones que usan cuentas de usuario para volver a rellenar la base de datos en local del móvil, pidiéndolas al servidor al momento de instalarlo y así no tener que estar haciendo consultas en cada momento.
-Lo que se vio una buena oportunidad era juntar el uso de un api de google junto con el backup de la aplicación. Por eso se decidió usar Google Drive.
+Lo que se vio una buena oportunidad era juntar el uso de un api de Google junto con el backup de la aplicación. Por eso se decidió usar Google Drive.
 
 \subsection{Debugging}
 \label{subsecc:Debugging}
@@ -296,10 +296,10 @@ Lo primero realizar la distribución de la vista que tendrá el usuario y probar
 Una vez se puede ver correctamente en todas las posiciones ya se puede pasar a darle utilidad a los botones por ejemplo. Probar con una notificación estilo Toast que funcionan correctamente los botones y que si se ha programado que salte a otra actividad lo hace sin problemas. También comprobar que pasa al darle hacia atrás y si es lógico que haga eso, ya que las actividades en Android tienen su ciclo de vida e igual no interesa que sigan vivas una vez se ha realizado alguna acción.
 Cuando ya las acciones simples funcionan lo siguiente es probar si la función que se ha implementado funciona correctamente para ello en el caso que esa función devuelva  un valor, lo más rápido es añadir al Toast anterior el valor de la función, y añadir un breakpoint en la función a la hora de ejecutar las pruebas conectado al ordenador.
 Con ese breakpoint cuando se lance la aplicación en la máquina virtual o el dispositivo físico podrás ejecutar el botón y se parara cuando entre en la función marcada. Se puede ir línea por línea e ir viendo que valores están cogiendo las variables.
-Lo mejor en mi opinión para hacer pruebas y no estropear la batería ni el enchufe del móvil es usar una máquina virtual de Android. El problema es el consumo de memoria que tiene el uso de esta opción. Android Studio ofrece su propio administrador de máquinas virtuales de Android. Pero recomiendo usar un software que se llama Genymotion que también está adaptado a Android studio, la ventaja de este software es que no consume tantos recursos y el móvil va más fluido.
+Lo mejor en mi opinión para hacer pruebas y no estropear la batería ni el enchufe del móvil es usar una máquina virtual de Android. El problema es el consumo de memoria que tiene el uso de esta opción. Android Studio ofrece su propio administrador de máquinas virtuales de Android. Pero recomiendo usar un software que se llama Genymotion que también está adaptado a Android Studio, la ventaja de este software es que no consume tantos recursos y el móvil va más fluido.
  
-En el caso de que se trabaje con servicios de google las máquinas virtuales no traen por defecto los servicios de google instalado así que hay que instalarlo en la maquina como si fuera software de terceros. Hay tutoriales por internet e incluso webs que se dedican a subir las apks de google play para que se puedan instalar dependiendo la versión del móvil.
-El funcionamiento es sencillo solo hay que instalar 2 ficheros uno es el ARM Translation installer y el otro son los servicios de google donde se encuentran Gmail,Google maps, youtube, etc…
+En el caso de que se trabaje con servicios de Google las máquinas virtuales no traen por defecto los servicios de Google instalado así que hay que instalarlo en la maquina como si fuera software de terceros. Hay tutoriales por internet e incluso webs que se dedican a subir las apks de Google play para que se puedan instalar dependiendo la versión del móvil.
+El funcionamiento es sencillo solo hay que instalar 2 ficheros uno es el ARM Translation installer y el otro son los servicios de Google donde se encuentran Gmail,Google maps, youtube, etc…
 Cuando se realizan estos pasos ya se tendrá un móvil Android virtual como el que se tiene físico.
 Al trabajar con una máquina virtual las capturas de pantalla y grabaciones son sencillas de hacer. Y el acceso a las carpetas donde se guardan las bases de datos de la aplicación tenemos permisos de super usuarios para entrar y descargar esos datos, cosa que si se prueba en un dispositivo físico se necesitaría rootear el teléfono para hacer lo mismo.
 Una vez los casos de uso funcionen como se tenía pensado es hora de subir la aplicación en versión alpha y hacer que los usuarios la prueben.
@@ -375,12 +375,12 @@ Uno de los casos más comunes es cuando se importa un proyecto de github o eclip
 Algunas maneras de solucionarlo es instalando las apis que requiere el proyecto, al no tenerlas descargadas e instaladas en el ordenador donde se está implementando esto ha podido hacer que falle la compilación y ha hecho que se vuelva loco Android Studio.
 Otra solución desesperada es dentro del menú build de Android Studio la opción clean, con esto se limpiara la compilación anterior y realizara una nueva.
 Un problema muy común para los que desarrollan en Eclipse son las modificaciones en el manifest o xml de vistas, hay muchas veces que se genera una actividad nueva y se olvida que para usarla tiene que estar en el manifest apuntada.
-Con Android studio este problema no pasa en gran medida ya que da la opción de generar todo de golpe, genera los layouts, modifica el manifest y genera los menus si se quiere solo dándole a un botón.
+Con Android Studio este problema no pasa en gran medida ya que da la opción de generar todo de golpe, genera los layouts, modifica el manifest y genera los menus si se quiere solo dándole a un botón.
 Si se es nuevo con Android como era yo al empezar la aplicación, no se conoce tan a fondo los entresijos  que depara Android a la hora de programar, uno de ellos es el uso de los servicios web.
 Acostumbrado a realizar las llamadas de los servicios web donde quisiera, un error fue meterlo directamente en la actividad, al ejecutar la aplicación se bloqueaba y el debugging llevaba a unas clases creadas por Android.
 Buscando por internet explicaban que en Android toda acción que haga que la pantalla se bloqueara durante un tiempo no estaba permitida hacerla en el hilo principal de la actividad.
 Ese descubrimiento fue muy útil, ya que con eso aprendí  muchas cosas sobre los hilos en Android y las tareas asíncronas.
  
-Antes se ha hablado del uso de máquinas virtuales, uno de los problemas que tiene usar máquinas virtuales son los recursos del ordenador físico que las está moviendo. En más de una ocasión se ha quedado el ordenador sin memoria por tener el Android studio y la máquina virtual abierta, el único consejo que hay al respecto es intentar no usar máquinas virtuales muy pesadas, cuanto más alta es la api y mayores recursos se le asignan a la maquina más pesada es y más va a exigir.
+Antes se ha hablado del uso de máquinas virtuales, uno de los problemas que tiene usar máquinas virtuales son los recursos del ordenador físico que las está moviendo. En más de una ocasión se ha quedado el ordenador sin memoria por tener el Android Studio y la máquina virtual abierta, el único consejo que hay al respecto es intentar no usar máquinas virtuales muy pesadas, cuanto más alta es la api y mayores recursos se le asignan a la maquina más pesada es y más va a exigir.
 Android Studio es un IDE potente para desarrollar aplicación Android el problema de esto es que al ser potente también exige mucho. Si se quiere desarrollar en Android se necesita un equipo que tenga suficiente memoria para no quedarse esperando porque se ha quedado parado al compilar el Gradle.
 
