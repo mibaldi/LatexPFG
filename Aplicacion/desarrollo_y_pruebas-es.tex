@@ -1,7 +1,7 @@
 \subsection{Utilización de APIs}
 \label{subsecc:Utilización de APIs}
 
-En la aplicación de Baldugenda se ha usado 3 apis principalmente que son la de Google Calendar, Google Drive y la de Splunk Mint.
+En la aplicación de Baldugenda se han usado 3 APIs principalmente que son la de Google Calendar, Google Drive y la de Splunk Mint.
 El api de Google Calendar se ha usado para el manejo de los eventos de examen dentro del calendario de Google y la creación y modificación de dichos eventos.
 El api de Google Drive se ha usado para la realización del backup.
 Y aunque Google nos proporciona medios para debugear la aplicación y ver qué tipos de dispositivos se la instalan se ha decidido usar el api de splunk mint para esta función ya que ofrece información específica de los errores sin que el usuario que la está usando tenga que mandar nada.
@@ -9,9 +9,8 @@ Y aunque Google nos proporciona medios para debugear la aplicación y ver qué t
 \subsection{Dispositivos}
 \label{subsecc:Dispositivos}
 
-Una de los requisitos que tenía que cumplir Baldugenda era que fuera accesible a todo el mundo que usara Android. Ya que es una labor difícil porque hay muchos dispositivos se optó por el mal menor y se fijó la versión de Android más baja posible que no diera problemas y que no quitara muchos usuarios.
-
-La versión usada como mínimo en la aplicación fue la API 10-Gingerbread (2.3.3), según estadísticas de Google realizadas en mayo de 2015 la distribución de las versiones de Android esta así.
+Una de los requisitos que tenía que cumplir Baldugenda era que fuera accesible a todo el mundo que usara Android. La elección de la versión fue una labor difícil porque hay muchos dispositivos con distintas versiones, por este motivo se optó por el mal menor y se fijó la versión de Android más baja posible que no diera problemas y que no quitara muchos usuarios.
+La versión usada como mínimo en la aplicación fue la API 10-Gingerbread (2.3.3), según estadísticas de google realizadas en mayo de 2015 la distribución de las versiones de Android es así.
 
 \begin{figure}[H] 
   \begin{center} 
@@ -21,9 +20,8 @@ La versión usada como mínimo en la aplicación fue la API 10-Gingerbread (2.3.
   \end{center} 
 \end{figure}
 
-Aparte de la versión se tuvo que decidir para que tipo de pantallas se lanzaría la aplicación, ya que optar por todas haría que la app pesara demasiado.
-
-Se consultó el grafico de pantallas de Google y se decidió dejar fuera la xxhdpi y a la ldpi y usar la mdpi,hdpi y xhdpi
+Aparte de la versión se tuvo que decidir para que tipo de pantallas se lanzaría la aplicación, ya que optar por todas haría que la app pesara demasiado, por el hecho de incluir imágenes que se vieran bien en todas las pantallas sin la necesidad de redimensionar.
+Se consultó el gráfico de pantallas de google y se decidió dejar fuera la xxhdpi y a la ldpi y usar la mdpi,hdpi y xhdpi.
 
 \begin{figure}[H] 
   \begin{center} 
@@ -36,11 +34,12 @@ Se consultó el grafico de pantallas de Google y se decidió dejar fuera la xxhd
 \subsection{Almacenamiento}
 \label{subsecc:Almacenamiento}
 
-Para el desarrollo de la aplicación se ha optado por almacenar la información en ficheros sqlite que después el programa leerá y tratara los datos. 
-Durante toda la fase de implementación de la aplicación se ha ido modificando la BD hasta llegar a la versión 3 que es la que se está usando actualmente.
-En cada una de las versiones se iban añadiendo campos que pedían los Baldusers, y al crear nueva versión de la BD se ha tenido que ir actualizando las BDs creadas ya en los Baldusers que ya se habían instalado la aplicación.
-Estas actualizaciones eran referentes a crear columnas nuevas en las tablas o llegando a recorrer las tablas enteras para organizar los datos.
-Se ha creado 3 tablas, una para las asignaturas, otra para los exámenes y la última para las notas de los exámenes.
+Para el desarrollo de Baldugenda se optó por almacenar la información en ficheros sqlite que después el módulo de base de datos leerá y tratará los datos para usarlos en las distintas actividades.
+Durante toda la fase de implementación de Baldugenda se ha ido modificando la BD hasta llegar a la versión 3 que es la que se está usando actualmente.
+En cada una de las versiones se han ido añadiendo campos que pedían los Baldusers, y al crear una nueva versión de la BD se tuvo que ir actualizando las BDs ya que hubo momentos en los que los Baldusers tenían versiones antiguas de la BD, y no tenían que perder la información ya almacenada.
+Estas actualizaciones se basaron en crear columnas nuevas en las tablas o llegando a recorrer las tablas enteras para organizar los datos.
+Se crearon 3 tablas, una para las asignaturas, otra para los exámenes y la última para las notas de los exámenes.
+
 
 Las tablas tienen las siguientes columnas:
 \subsubsection{Asignaturas}
@@ -96,27 +95,27 @@ Las tablas tienen las siguientes columnas:
 \textbf{Nota\_Sobre} campo integer, nota máxima en el examen
 
 
-Tanto en la tabla de exámenes como en la de notas se ha tenido que especificar que sea un campo único con multi valor para que no se puedan crear exámenes repetidos o duplicar notas.
-A la hora de crear la base de datos se crea la BD versión 1 y la aplicación comprueba si había alguna BD en el dispositivo y que versión tiene dependiendo de eso entrara a la función de upgrade que lo que hará es realizar las actualizaciones para actualizar la BD a la versión más actual.
+Tanto en la tabla de exámenes como en la de notas se tuvo que especificar que la clave fuera un campo único con multi valor para que no se pudieran crear exámenes repetidos o duplicar notas.
+El funcionamiento de la creación de la base de datos en Baldugenda se implementó de la siguiente manera, el sistema crea la versión 1 de la BD, y el módulo de BD comprueba la versión disponible en el dispositivo, en el caso de que no haya una BD realizará las modificaciones para crear una BD version 3. Si en el dispositivo se encuentra una versión anterior de la BD solo realizará las modificaciones necesarias hasta alcanzar la versión 3.
+
 
 \subsection{Backup}
 \label{subsecc:Backup}
 
-Para esta función de Backup se ha usado el api de Google Drive, al usuario se le da la opción de exportar la base de datos a la carpeta que quiera de su Google Drive.
-Para exportar primero se realiza una conexión con el servicio de Google se comprueba que tiene los permisos necesarios para realizar la creación de carpetas y ficheros y una vez Google ha mandado la respuesta, se puede acceder al Google Drive mediante una actividad que proporciona el propio api de Google Drive que muestra las carpetas del Drive y da la posibilidad de crear nuevas carpetas. 
-Ya que la conexión es  asíncrona se ha tenido que separar la opción de seleccionar la carpeta donde el usuario subirá la base de datos de la opción de subir la base de datos,  si se realizaba junto al intentar subir la BD la aplicación se bloqueaba porque Google todavía no tenía la carpeta creada en su base de datos. 
-A la hora de crear el fichero que se sube a Google Drive se ha realizado una transformación de un fichero a bytes.
-Y después se han escrito esos bytes en el canal de entrada para el fichero que se deseaba crear.
-El fichero coge el nombre de la base de datos y se le añade la fecha y la hora en la que se ha creado el fichero para que el usuario pueda escoger con facilidad ordenándolo por nombre.
-Para importar la base de datos lo único que tiene que hacer el usuario es seleccionar el fichero que quiere importar y darle al botón de importar base de datos.
-La lógica de negocio se encarga de coger el fichero seleccionado de Google Drive y dirigir el canal de salida del fichero escogido al fichero que se crea en la ruta de la base de datos, que en caso de que exista se borra.
+Para esta función de Backup se usó el api de google drive, el sistema le daba la opción al Balduser de exportar la base de datos a la carpeta que él quisiera de su google drive.
+Para exportar primero el módulo de drive realiza una conexión con el servicio de google comprueba que tiene los permisos necesarios para realizar la creación de carpetas y ficheros y una vez google le respondía con una confirmación, mediante el módulo de exportación se accedía al google drive mediante una actividad que proporciona el propio api de google drive que muestra las carpetas del Drive y da la posibilidad de crear nuevas carpetas.
+Ya que la conexión era asíncrona se tuvo que separar la opción de seleccionar la carpeta donde el usuario subiría la base de datos, de la opción de volcar la base de datos a Google Drive,  si se realizaba junto, al intentar subir la BD la aplicación se bloqueaba porque google todavía no proporcionaba el id necesario para volcar la base de datos dentro de la carpeta creada.
+A la hora de crear el fichero que se subía a google drive, el módulo de exportación realizaba una lectura de la base de datos de Baldugenda, después de haber leído toda la base de datos, esos datos se generaban en un formato de ByteArray para poder enviarselo a que Google generaría por medio del API un fichero y que posteriormente lo almacenaría en Google Drive, al hacer uso del API de Google Drive todos los funciones de creación y modificación dentro de google drive no se pudo ver como funcionaban por dentro, tanto la creación como la modificación de ficheros y carpetas se realizó hasta el envío de los datos, a partir de ese momento Google se encargó de todo .
+El sistema asignaba al fichero el nombre de la base de datos y se le añadía la fecha y la hora en la que se había creado el fichero para que el usuario pudiera escoger con facilidad ordenándolo por nombre.
+Para importar la base de datos lo único que tenía que hacer el usuario era seleccionar el fichero que se quería importar y darle al botón de importar base de datos.
+La lógica de negocio se encargará de descargar el fichero seleccionado de google drive y creará un fichero nuevo en la ruta donde se encontraría la base de datos de Baldugenda, que en caso de que existiese un fichero en esa ruta se borraría.
 
 \subsection{Interacción con la app}
 \label{subsecc:Interacción con la app}
 
-El manejo de Baldugenda según los Baldusers es sencillo, para acceder a la lista de asignaturas o a la lista de exámenes solo hace falta darle al icono del menú principal.
-Aparte de este menú que se basa en icono con títulos que explica para que es cada icono, podemos ver las listas de asignaturas y de exámenes, cada lista tiene cosas únicas que se han colocado para probar acciones dentro de una aplicación Android.
+Se realizaron pruebas a los Baldusers, y la mayoria realizaron las pruebas sin problemas, las respuestas que devolvieron eran que Baldugenda tenia una interfaz sencilla y de fácil manejo. Por este motivo se puede suponer que el manejo de Baldugenda es sencillo, un ejemplo es que para acceder a la lista de asignaturas o a la lista de exámenes solo hace falta darle al icono del menú principal.
+Aparte de este menú, que se basó en una serie de iconos con títulos que explica para qué es cada icono, se pueden ver las listas de asignaturas y de exámenes, cada lista tiene cosas únicas que se han colocado para probar acciones dentro de una aplicación Android.
 En la lista de asignaturas se puede encontrar un menú de búsqueda para que el usuario en el caso de que tenga muchas asignaturas, escribiendo el nombre de la asignatura en la caja de texto le aparecería esa asignatura en la lista.
-Aparte se ha añadido la opción de la pulsación larga en cada asignatura para poder editarla y borrarla.
+Aparte se añadió la opción de la pulsación larga en cada asignatura para poder editarla o borrarla.
 En la actividad de exámenes se puede ver que la lista no es igual a la lista de asignaturas, se ha usado la clase ExpandableList para crear cajones donde ira la asignatura y los exámenes de esa asignatura, junto con el número de exámenes que hay dentro de la asignatura.
-Se ha modificado el botón de atrás dentro de la actividad lista exámenes para que muestre un menú de navegación lateral para poder ir a cualquiera de las actividades mostradas. A los Baldusers les pareció bien el menú pero ninguno vio necesario ponerlo en cada actividad.
+Se ha modificado el botón de atrás dentro de la actividad lista exámenes para que muestre un menú de navegación lateral para poder ir a cualquiera de las actividades mostradas. Se les preguntó a los Baldusers si les parecía buena idea el menú y si era necesario incluirlo en cada una de las actividades, no respondieron al respecto. Por este motivo se decidió dejarlo únicamente en la actividad de lista exámenes para posibles mejoras.
