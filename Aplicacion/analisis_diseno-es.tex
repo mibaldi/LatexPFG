@@ -4,9 +4,7 @@
 Para ver cómo funciona la aplicación, tenemos que entender primero su arquitectura. Baldugenda tiene una arquitectura MVC, esto quiere decir que tiene separadas las partes de los datos, la lógica de negocio y la interfaz de usuario.
 El modelo vista controlador, es un patrón de arquitectura de software que separa los datos y la lógica de negocio. Este tipo de arquitectura es muy útil si se va a trabajar en un dispositivo móvil, ya que actualmente los datos se quieren usar para Android pero puede que en un futuro se quisieran usar en una aplicación web, la migración sería sencilla. Esto es gracias a la distribución que ofrece Android con el uso de los layouts y de sus activities.
 El funcionamiento que ofrece Android por medio de sus actividades funciona como controlador en la arquitectura MVC siendo la vista los layouts.
-
-
-
+\newpage
 \begin{figure}[H] 
   \begin{center} 
     \scalebox{0.4}{\includegraphics{figs/modeloMVC.png}} 
@@ -73,7 +71,7 @@ En ese momento, la asignatura se modificará en la base de datos y al usuario se
 
 Aparte de Modificar asignatura se puede \textbf{Borrar asignatura}, con esta opción el usuario hará lo mismo que en el caso de modificar asignatura pero en vez de mostrarle la nueva ventana con los datos de la asignatura, ahora se le mostrará un mensaje de si está seguro que desea borrarla.
 Al decir que si el usuario, la asignatura se borrara o devolverá un mensaje de error informando el motivo por el que no se ha podido borrar.
-Solo se permite borrar asignatura que no tengan exámenes dentro, esto se decidió así ya que si no supondría un borrado en cascada y el coste que produciría eso sería muy costoso ya que también se tendrían que borrar los eventos en el calendario de google de todos los exámenes de esa asignatura.
+Solo se permite borrar asignatura que no tengan exámenes dentro, esto se decidió así ya que si no supondría un borrado en cascada y el coste que produciría eso sería muy costoso ya que también se tendrían que borrar los eventos en el calendario de Google de todos los exámenes de esa asignatura.
 
 
 \begin{figure}[H]
@@ -111,13 +109,14 @@ Siendo la nota obtenida la suma de los exámenes y la total de la nota será gua
   \end{center}
   \caption{Actividad Crear Examen}
 \end{wrapfigure}
-Dentro de los casos de uso de examen podemos encontrar el de \textbf{Crear Examen}, al usuario se le permitirá crear un examen mediante un formulario donde tendrá que seleccionar la asignatura del examen y en caso de darle permisos de google calendar a la aplicación, se le mostrarán los calendarios de google de la cuenta seleccionada.
+Dentro de los casos de uso de examen podemos encontrar el de \textbf{Crear Examen}, al usuario se le permitirá crear un examen mediante un formulario donde tendrá que seleccionar la asignatura del examen y en caso de darle permisos de Google Calendar a la aplicación, se le mostrarán los calendarios de Google de la cuenta seleccionada.
 Aparte, tendrá que escribir un nombre para el examen,  y si desea podrá escribir una descripción donde añadiría el temario que entra o texto interesante sobre el examen.
 También hay un apartado donde podrá seleccionar la fecha que será el examen y la hora de inicio.
+
 Para terminar el formulario, el usuario tendrá que poner sobre cuánto se evaluará ese examen, siendo como valor por defecto la nota máxima de la asignatura y el valor mínimo 0.
 Hay dos formas en las que se podrá guardar un examen:
 En local: Si el usuario no dispone de internet, la lógica de negocio hará que se cree el examen en la base de datos únicamente.
-En Ambos: Si el usuario dispone de internet, se creará un evento de examen en el calendario de google escogido  y se almacenará también en la base de datos.
+En Ambos: Si el usuario dispone de internet, se creará un evento de examen en el calendario de Google escogido  y se almacenará también en la base de datos.
 
 
 En la actividad de \textbf{Ver lista de exámenes}, funciona de la siguiente manera,los exámenes se muestran mediante la clase ExpandableList las asignaturas donde hay exámenes creados. Para agrupar los exámenes se ha escogido la asignatura como categoría de agrupación dentro de la lista y para hacerla más legible y más ordenada.
@@ -147,8 +146,8 @@ Para empezar el caso de uso fundamental, si se quieren usar los servicios de Goo
 
 \textbf{Casos de uso vinculados a Google Calendar}, estos casos de uso son muy variados y son los que Google da de ejemplo a la hora de usar Google Calendar, se dejaron en la aplicación ya que son útiles a la hora de realizar modificaciones en los calendarios de Google sin tener que estar metiéndose expresamente.
 Alguno de los casos de uso vinculados son, la creación de un calendario, ver la lista de los calendarios, modificar un calendario, borrar un calendario, y triplicar un calendario. También da la opción de visualizar un calendario, donde sí se usa la opción se mostrará el nombre del calendario y se dará la posibilidad de modificarlo.
- 
-\textbf{Casos de uso vinculados a Google Drive}, para la realización del backup se usa el api de Google Drive, hay dos casos principales que son el de exportar e importar la base de datos.
+
+\textbf{Casos de uso vinculados a Google Drive}, para la realización del backup se usa el API de Google Drive, hay dos casos principales que son el de exportar e importar la base de datos.
 En el caso de uso de exportar el usuario escoge la carpeta donde quiere guardar la base de datos y también se le da la opción de crear una carpeta nueva.
 Después el usuario pulsara el botón de exportar base de datos para que se realice una copia en Google Drive de la base de datos en ese momento.
 Para el caso de uso de importar el funcionamiento es muy parecido, el usuario selecciona la base de datos que quiere importar y una vez que tiene seleccionado el fichero solo tiene que darle al botón para realizar el borrado de la antigua base de datos y la copia al dispositivo de la guardada.
@@ -183,7 +182,7 @@ La relación es la siguiente:
 \label{subsecc:Interfaces de usuario}
 
 En Android se usan las Activities para implementar las interfaces de usuario, estas contienen la lógica y controlan su ciclo de vida.
-Las Activities usadas en Baldugenda son las siguientes: AcitividadPrincipal, Asignatura, crear\_asignatura, modificar\_asignatura, lista\_asignaturas, Examen, crear\_examen, modificar\_examen, lista\_exámenes, drive, contacto.
+Las Activities usadas en Baldugenda son las siguientes: AcitividadPrincipal, Asignatura, crear\_asignatura, modificar\_asignatura, lista\_asignaturas, Examen, crear\_examen, modificar\_examen, lista\_exámenes, Drive, contacto.
 
 \textbf{Actividad Principal}
 
