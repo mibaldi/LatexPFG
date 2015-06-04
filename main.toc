@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.1}Antecedentes del proyecto}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Alcance del proyecto}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}Exclusiones del proyecto}{7}{section.2.3}
-\contentsline {chapter}{\numberline {3}Ciclo de vida y Participaci\IeC {\'o}n de los usuarios en el proyecto}{9}{chapter.3}
+\contentsline {chapter}{\numberline {3}Ciclo de vida y participaci\IeC {\'o}n de los usuarios en el proyecto}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Ciclos de Baldugenda}{9}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Ciclo Uno}{10}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Ciclo Dos}{11}{subsection.3.1.2}
@@ -76,4 +76,9 @@
 \contentsline {section}{\numberline {7.3}Gesti\IeC {\'o}n del tiempo}{89}{section.7.3}
 \contentsline {section}{\numberline {7.4}Conclusiones sobre la gesti\IeC {\'o}n}{90}{section.7.4}
 \contentsline {chapter}{\numberline {8}Conclusiones}{91}{chapter.8}
-\contentsline {chapter}{\numberline {9}Propuestas de extension y mejoras futuras}{93}{chapter.9}
+\contentsline {section}{\numberline {8.1}Conclusiones sobre los objetivos}{92}{section.8.1}
+\contentsline {section}{\numberline {8.2}Conclusiones sobre la gesti\IeC {\'o}n}{94}{section.8.2}
+\contentsline {section}{\numberline {8.3}Experiencia personal}{95}{section.8.3}
+\contentsline {chapter}{\numberline {9}Propuestas de extension y mejoras futuras}{97}{chapter.9}
+\contentsline {section}{\numberline {9.1}Propuestas de extensi\IeC {\'o}n}{98}{section.9.1}
+\contentsline {section}{\numberline {9.2}Propuestas de mejora}{99}{section.9.2}
