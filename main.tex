@@ -13,6 +13,9 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 \usetikzlibrary{babel}
+\usepackage[xindy]{glossaries}
+
+
 
 % \newcommand{\euskaraz}{eu} % Comentar para castellano
 
@@ -85,10 +88,10 @@
 \input{9-conclusions}
 \input{10-propuestas-es}
 
-\noappendicestocpagenum
-\appendixpage
-\addappheadtotoc
-\appendix
+%\noappendicestocpagenum
+%\appendixpage
+%\addappheadtotoc
+%\appendix
 % Adjustments headers
 \pagestyle{fancy}
 \fancyhead[LO]{\leftmark}
@@ -106,9 +109,9 @@
 \bibliography{gap-pfg}
 
 % In case we are using a glossary
-% \glstoctrue
-% \glsaddall
-% \printglossaries
+ \glstoctrue
+ \glsaddall
+ \printglossaries
 
 \end{document}
 % line in order to check if utf-8 is properly configured: áéíóúñ
