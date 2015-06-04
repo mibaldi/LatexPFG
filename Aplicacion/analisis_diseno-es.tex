@@ -1,10 +1,13 @@
+\section{Análisis y diseño}
+\label{secc:análisis y diseño}
+Se han dividido el apartado de análisis y diseño en 5 apartados donde se podrá encontrar la arquitectura usada y un pequeño análisis de alternativas vistas, después estarán los casos de uso de la version del ultimo ciclo de Baldugenda. También habrá una sección donde se detalla el modelo de datos usado, para posteriormente hablar sobre las interfaces de usuario y para terminar en un análisis de diseño. 
 \subsection{Arquitectura}
 \label{subsecc:arquitectura}
 
 Para ver cómo funciona la aplicación, tenemos que entender primero su arquitectura. Baldugenda tiene una arquitectura MVC, esto quiere decir que tiene separadas las partes de los datos, la lógica de negocio y la interfaz de usuario.
 El modelo vista controlador, es un patrón de arquitectura de software que separa los datos y la lógica de negocio. Este tipo de arquitectura es muy útil si se va a trabajar en un dispositivo móvil, ya que actualmente los datos se quieren usar para Android pero puede que en un futuro se quisieran usar en una aplicación web, la migración sería sencilla. Esto es gracias a la distribución que ofrece Android con el uso de los layouts y de sus activities.
 El funcionamiento que ofrece Android por medio de sus actividades funciona como controlador en la arquitectura MVC siendo la vista los layouts.
-\newpage
+
 \begin{figure}[H] 
   \begin{center} 
     \scalebox{0.4}{\includegraphics{figs/modeloMVC.png}} 
@@ -13,7 +16,7 @@ El funcionamiento que ofrece Android por medio de sus actividades funciona como 
   \end{center} 
 \end{figure}
 
-
+\newpage
 \subsubsection{Arquitecturas identificadas}
 \label{subsubsecc:Arquitecturas identificadas}
 
@@ -222,14 +225,65 @@ También da la posibilidad mediante la pulsación larga en cada examen de ir al 
 \textbf{Examen}
 
 Es la actividad que muestra los valores que tiene el examen escogido y nos permite acceder a los casos de uso de editar y borrar examen.
+\newpage
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[auto, node distance = 0.5cm and 0.5cm,every node/.style={inner sep=0pt}]
+    \tikzset{A/.style={arrows={Circle-Stealth},draw,blue,ultra thick}}
+    
+    \node (main) {\includegraphics[width=3cm]{figs/capturas/1.png}};
+	\node [left=of main] (crearAsignatura) {\includegraphics[width=3cm]{figs/capturas/3.png}};
+    \node [left=of crearAsignatura] (asignatura) {\includegraphics[width=3cm]{figs/capturas/6.png}};
+    \node [right=of main] (examen) {\includegraphics[width=3cm]{figs/capturas/7.png}};
+    \node [below=of main] (backup) {\includegraphics[width=3cm]{figs/capturas/11.png}};
+    
+	\node [above=of main] (listaExamen) {\includegraphics[width=3cm]{figs/capturas/4.png}};    
+    
+   	\node [left=of listaExamen] (listaAsignatura) {\includegraphics[width=3cm]{figs/capturas/5.png}};
+   	\node [left=of listaAsignatura] (modAsignatura) {\includegraphics[width=3cm]{figs/capturas/8.png}};
+    \node [right=of listaExamen] (modExamen) {\includegraphics[width=3cm]{figs/capturas/8.png}}; 
+    
+    \node [left=of backup] (help) {\includegraphics[width=3cm]{figs/capturas/14.png}};
+    \node [left=of help] (calendar) {\includegraphics[width=3cm]{figs/capturas/10.png}};
+    \node [right=of backup] (crearExamen) {\includegraphics[width=3cm]{figs/capturas/2.png}}; 
+    \node [below=of backup] (exportar) {\includegraphics[width=3cm]{figs/capturas/12.png}}; 
+    \node [below=of help] (importar) {\includegraphics[width=3cm]{figs/capturas/13.png}}; 
 
-\textbf{IMAGEN DE LA RELACION DE INTERFACES}
+    
+    \coordinate (lista-A) at ($(main.north west) + (0.8,-1.8)$);
+    \coordinate (crear-A) at ($(main.north west) + (0.8,-3.4)$);
+    \coordinate (lista-E) at ($(main.north east) - (0.8,1.8)$);
+    \coordinate (crear-E) at ($(main.north east) - (0.8,3.4)$);
+    \coordinate (calendario) at ($(main.north west) + (0.8,-4.4)$);
+    \coordinate (ayuda) at ($(main.north east) - (0.8,4.4)$);
+    \coordinate (menu) at ($(main.north east) - (0.25,0.45)$);
+    \draw [A] (lista-A) -- (listaAsignatura);
+    \draw [A] (lista-E) -- (listaExamen);
+    \draw [A] (crear-A) -- (crearAsignatura);
+    \draw [A] (crear-E) -- (crearExamen);
+    \draw [A] (calendario) -- (calendar);
+    \draw [A] (ayuda) -- (help);
+    \draw [A] (menu) -- ($(backup.north east)$);
+    \draw [A] (listaAsignatura) -- (asignatura);
+    \draw [A] ($(listaAsignatura.north) !0.5! (listaAsignatura.south)$) -- (modAsignatura);
+    \draw [A] ($(asignatura.north) !0.5! (asignatura.south)$) -- (modAsignatura);
+    \draw [A] ($(crearAsignatura.north) !0.5! (crearAsignatura.south)$) -- (asignatura);
+    \draw [A] (listaExamen) -- (examen);
+    \draw [A] ($(listaExamen.north) !0.5! (listaExamen.south)$) -- (modExamen);
+    \draw [A] ($(examen.north) !0.5! (examen.south)$) -- (modExamen);
+    \draw [A] ($(crearExamen.north) !0.5! (crearExamen.south)$) -- (examen);
+    
+    
+  \end{tikzpicture}
+  \caption{Las pantallas de la interfaz de usuario y el movimiento entre ellas}
+  \label{fig:activity-relations}
+\end{figure}
 
 \subsection{Análisis de diseño}
 \label{subsecc:Análisis de diseño}
 
 Para esta aplicación se le ha dado importancia al uso de los permisos y no abusar de ellos era una de las prioridades.
-En la app se piden los permisos únicos y necesarios para la conexión a internet y el acceso al manejo de cuentas y calendarios en el dispositivo.
+En la app se piden los permisos únicos y necesarios para la conexión a Internet y el acceso al manejo de cuentas y calendarios en el dispositivo.
 Muchas aplicaciones abusan de estos permisos y piden aunque en realidad no se use porque es más fácil no tener que estar revisando los permisos que se necesitan a cada rato.
 Para el desarrollo de la app se ha seguido un desarrollo por etapas y se ha optado por el uso de testers para probar la aplicación y que ellos digan que casos de uso añadirían y que modificarían de la aplicación
 Las etapas han durado al redor de un mes cada una de ellas y en cada nueva etapa se añadía a más gente para que probara la aplicación e hicieran comentarios.

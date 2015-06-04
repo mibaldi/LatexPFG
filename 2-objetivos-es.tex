@@ -1,1 +1,56 @@
 \chapter{Objetivos del proyecto}
+Este capitulo se ha separado en 3 partes, en la primera se hablara del punto de partida desde donde se comenzó el proyecto. En la segunda parte se detallaran el alcance y las tecnologías usadas. Y para finalizar se hará un repaso de las exclusiones que se han decidido para el proyecto.
+\section{Antecedentes del proyecto}
+\label{secc:Antecedentes}
+Es común que durante la etapa de la universidad la organización sea un factor importante. El tema de la organización para muchos estudiantes suele ser molesta ya que no les gusta estar apuntando cada cosa que tienen que realizar, ya sean exámenes, notas, horarios, etc... Prefieren hacer uso de su memoria y apuntar todo lo que tienen que hacer al cabo del día. Por este motivo se planteo hacer una aplicación de móvil para evitar tener que estar llevando la agenda siempre encima y poder usar la memoria para las asignaturas de la carrera.
+
+El área de los Smartphones cada vez tiene mas fuerza en la sociedad y es raro no ver a gente por la calle escuchando música con su móvil o chateando. Se quiso juntar la idea presentada antes de la organización junto con los dispositivos móviles. En ese momento surgió la idea de crear una agenda universitaria dentro del móvil. 
+
+Un punto a tener en cuenta era, el carácter social que se quería conseguir  mediante la aplicación. Por muchas aplicaciones que hubieran en Internet para el móvil ninguna tenia el nivel social de compartir que se buscaba.Por ese motivo se decidió crea Baldugenda, una aplicación para móviles Android que sirviera de agenda para universitarios y que se pudiera relacionar la aplicación con otras personas.
+El aspecto social que propone Baldugenda es poder compartir calendarios con los compañeros de clase mediante Google Calendar y mediante Baldugenda poder llevar las notas de los exámenes al día, no tener que realizar suma de notas en cada asignatura y también crear una agenda compartida de los exámenes que hay en común.
+
+El motivo por el que se quiso desarrollar una aplicación para Android, era para aprender mas sobre las tecnologías móviles y el desarrollo de un proyecto con usuarios. En la carrera ya se comenzo a impartir algunos trabajos para fomentar el desarrollo con Android, por esto se decidió seguir formándose en esa rama.
+ 
+Después de los motivos que llevaron a realizar Baldugenda, el objetivo marcado que tenia que cumplir la aplicación era que lograra ser una agenda para universitarios en formato móvil donde los usuarios podrían apuntar los exámenes y las asignaturas, y al crear los exámenes poder compartirlos por medio de Google Calendar y llevar el al día las notas que se van sacando en una asignatura.  
+\newpage
+\section{Alcance del proyecto}
+\label{secc:Alcance}
+
+Ya se han comentado los motivos por los que se decidió crear Baldugenda, en este apartado se describen las características del problema resuelto y por otro lado los detalles acerca de las aplicaciones desarrolladas.
+A continuación se detallan los problemas a los que Baldugenda a dado solución:
+
+\begin{itemize}
+	\item El usuario podrá crear asignaturas indicando un nombre, el tipo de evaluación que se seguirá en la asignatura, la puntuación máxima de la asignatura y desea podrá añadir enlaces para esa asignatura.
+	\item Estas asignaturas tendrán asociado una serie de exámenes que el usuario podrá crear. Para crear un examen el usuario tendrá que indicar el nombre del examen, a que asignatura pertenece, si se ha dado permiso a Google Calendar se tendrá que seleccionar en que calendario se guardará el examen, también tendrá que indicar la fecha y la hora que será el examen y la nota sobre la que se evaluará.
+	\item El usuario podrá visualizar tanto los exámenes como las asignaturas de manera individual o en forma de lista.
+	\item También podrá realizar modificaciones y borrados de las asignaturas o exámenes que quiera.
+	\item En el caso de haber creado el examen asociado a un calendario de Google,el usuario podrá acceder al evento creado mediante Baldugenda a través de la aplicación de Google Calendar.
+	\item Entrando a la actividad de Backup el usuario podrá realizar una exportación de la base de datos de Baldugenda a la carpeta que se quiera de Google Drive. También tendrá la opción de importar una base de datos existente ubicada en Google Drive
+	\item Mediante la actividad de Calendarios podrá realizar modificaciones sencillas sobre sus propios calendarios de Google Calendar.
+	\item El usuario tendrá una opción de ayuda donde se podrá poner en contacto con el desarrollador de Baldugenda mediante Email o numero de teléfono, también tendrá acceso a la carpeta de Google Drive donde habrá un resumen de las funcionalidades de Baldugenda.
+	\item Dentro de Baldugenda se podrá seleccionar que cuenta se quiere usar de Google Calendar y en que cuenta de Google Drive se quiere realizar la exportación.
+\end{itemize}
+
+El desarrollo de las aplicaciones creadas se ha realizado de la siguiente manera:
+
+\begin{enumerate}
+	\item Existirá un cliente nativo para dispositivos Android, dicho cliente estará accesible mediante el Play Store de Google.
+	\item La aplicación Android podrá ejecutarse a partir de la version 2.3.3 de este sistema operativo,que a fecha de finalización de esta memoria los dispositivos con esta versión suponen el 99\% del total. Si se quiere usar todo las funcionalidades de la aplicación se necesitara disponer de conexión a Internet.
+	\item Las implementaciones se realizaran dando prioridad a tecnologías ya conocidas y con las que se ha trabajado anteriormente.
+	\item Se usara las cuentas de google vinculadas a los servicios de Google Calendar y Google Drive para acceder a la información que precise la aplicación.Si fuera necesario realizar funcionalidades nuevas se usaría servicios de Google para darle  
+\end{enumerate}
+\newpage
+\section{Exclusiones del proyecto}
+\label{secc:Exclusiones}
+
+Se excluyen del alcance del proyecto los siguientes puntos:
+
+\begin{enumerate}
+	\item El análisis de alternativas sobre las tecnologías optadas durante el proyecto. 
+	\item El análisis de carácter legal que resultaría necesario en una aplicación final. La aplicación realiza una importante recogida de datos personales (Asignaturas y Exámenes de un usuario) que se almacenan en el dispositivo y que posteriormente se envían a Google.También se ha recogido información referente a los usuarios que han realizado las pruebas. Esta recogida requiere de una consideración en las distintas consecuencias legales, sobre todo los relativos a la Ley Orgánica de Protección de Datos de Carácter Personal (LOPD) y la Ley de Servicios en la Sociedad de la Información (LSSI), lo cual sería materia suficiente para un Proyecto Fin de Carrera separado.
+	\item No se implementara un modulo ni un análisis de la seguridad dentro de la aplicación. Los aspectos de la seguridad cuando se envíen datos a servicios de Google recaerán en la seguridad implementada en esos servicios.
+	\item La implementación de funcionalidades nuevas que facilitaran el uso de la aplicación a personas con alguna discapacidad, como podría ser la creación de exámenes mediante la voz. 
+	\item El desarrollo de cliente distinto a Android.
+	\item La implementación de un módulo propio para la autenticación de los usuarios, que se ha delegado en un servicio externo.
+\end{enumerate}
+
