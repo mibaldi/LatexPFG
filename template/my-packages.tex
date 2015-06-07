@@ -119,12 +119,13 @@
 % ################################################################
 % #######     Bibliografia                          ##############
 % ################################################################
-% \usepackage{natbib}
-% \newcommand{\citenp}[2][ ]{\citeauthor{#2}#1 (\citeyear{#2})}
-% \bibpunct{}{}{;}{a}{,}{,~}
-% \newcommand{\myetal}{\emph{et~al.}}
-% \bibliographystyle{plainnat4}
-\bibliographystyle{apalike}
+%\usepackage{natbib}
+ %\newcommand{\citenp}[2][ ]{\citeauthor{#2}#1 (\citeyear{#2})}
+ %\bibpunct{}{}{;}{a}{,}{,~}
+ %\newcommand{\myetal}{\emph{et~al.}}
+%\bibliographystyle{plainnat4}
+%\bibliographystyle{apalike}
+\bibliographystyle{plain}
 
 
 % To insert development comments (todos, corrections...)
@@ -141,7 +142,7 @@
 % 	\renewcommand{\rmdefault}{mdbch} % charter
 \DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
 \DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
-%\usepackage{charter}
+%\{charter}
 % \renewcommand{\rmdefault}{bch}
 % \renewcommand{\bfdefault}{b}
 
@@ -256,9 +257,10 @@
 % \subsectionfont{\sffamily\textsl}
 % \subsubsectionfont{\sffamily}
 
-
+\usepackage[hyperindex,pagebackref=true,bookmarks,colorlinks=true,citecolor=blue,urlcolor=blue,linkcolor=blue,pdftex,unicode]{hyperref}
 \usepackage{appendix}
-% \usepackage{glossaries}
+\usepackage[acronym,toc,savenumberlist,counter=page]{glossaries} 
+%\usepackage{glossaries} 
 % Erabilera 
 % http://en.wikibooks.org/wiki/LaTeX/Glossary
 % latexmk erabiliz gero, ikusi http://tex.stackexchange.com/questions/1226/how-to-make-latexmk-use-makeglossaries
@@ -508,6 +510,8 @@
 		\renewcommand{\appendixname}{Anexo}
 		\renewcommand{\appendixpagename}{Anexos}
 		\renewcommand{\appendixtocname}{Anexos}
+		\renewcommand*{\glossaryname}{Glosario}
+		\renewcommand*{\acronymname}{Acrónimos}
 	}
 	
 	% tabla de contenido sin numeracion 
@@ -521,7 +525,6 @@
 		% \renewcommand{tablename}{tabla}
 \fi
 
-\usepackage[hyperindex,bookmarks,colorlinks=true,citecolor=blue,urlcolor=blue,linkcolor=blue,pdftex,unicode]{hyperref}
 
 
 \hypersetup{
@@ -530,9 +533,13 @@
 	pdfsubject = {\gapizenburua - \informatikafakultatea},
 	pdfkeywords = {\today},
 	pdfcreator = {},
+	pdffitwindow=true,
 	pdfproducer = {}
 }
-
 \makeglossaries	% according to manual, in the preamble and after hyperref
+\input{glosario.tex}
+\usepackage[xindy]{imakeidx}
+\makeindex
 
+%\input{glosario}
 % line in order to check if utf-8 is properly configured: áéíóúñ

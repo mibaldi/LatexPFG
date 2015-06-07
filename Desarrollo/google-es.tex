@@ -15,7 +15,7 @@ Para poder desarrollar aplicaciones y colgarlas en el Play Store hay que realiza
 Una vez se ha realizado el pago la creación de una aplicación se separa en dos partes principales.
 
 \begin{itemize}
-\item Desarrollo mediante Eclipse o Android Studio
+\item Desarrollo mediante Eclipse o \gls{Android Studio}
 \item Subida al Google Play
 \end{itemize}
 
@@ -58,7 +58,7 @@ Google limita el peso de las apk que se pueden subir a Google Play en 50 mb, a p
 
 Ya se ha explicado cómo funciona la subida de una aplicación a Google play, pero eso no es lo único que Google proporciona de ayuda a la hora de desarrollar la aplicación y distribuirla.
 Google proporciona sus APIs propias para que se vinculen los servicios que ofrece Google con la aplicación que se quiera desarrollar. Si la aplicación que se quiere desarrollar no va a realizar un gran uso de los servicios de Google no hay problema, el problema surge cuando se alcanza el límite de usos de la API y Google exige pagos para seguir usándolo al mismo rendimiento.
-Aunque a priori las cuotas parecen altas siendo como es el caso de Google Calendar API de 1.000.000 de solicitudes por día, si una aplicación se quisiera comercializar ya habría que estar al tanto de cuantas solicitudes se realizan y si se necesita aumentar la cuota, puesto que al tener publica la aplicación, cualquiera en el mundo podria descargarsela.
+Aunque a priori las cuotas parecen altas siendo como es el caso de Google Calendar API \cite{GCalendar} de 1.000.000 de solicitudes por día, si una aplicación se quisiera comercializar ya habría que estar al tanto de cuantas solicitudes se realizan y si se necesita aumentar la cuota, puesto que al tener publica la aplicación, cualquiera en el mundo podria descargarsela.
 
 Para el uso de estas APIs, Google ofrece distintas posibilidades dependiendo de la API, ya que hay algunas que necesitan autenticación para funcionar como puede ser el caso de Google Calendar frente a otras como Google maps que lo único que necesitan es la credencial de tu aplicación para llevar al día la cuota de la API.
 Este apartado de credenciales de las APIs es un tema bastante difícil a la hora de usar los servicios de Google y donde más problemas se suelen tener. Google lo explica en su web paso a paso como configurar las credenciales. Aunque bastantes veces habrá que generar credenciales que no se sabe para qué sirven porque las que dice Google que se generen no dan acceso a la API.
@@ -80,7 +80,7 @@ Google al proporcionar el API de Google Calendar y al estar tan vinculado a Andr
 Con el servicio del calendario Google permite realizar todo lo que se podría hacer desde el servicio web de Google Calendar pero desde la aplicación que creemos.
 
 A la hora de desarrollar una aplicación usando este API, Google propone 2 formas para empezar a desarrollar, una usando el API Rest y la otra usando la librería java que nos proporcionan con los métodos.
-El problema en esta parte es que si se tiene algún problema con el API Rest el código que dan de ejemplo es demasiado pequeño si se quiere realizar cosas complejas. Y en el código de ejemplo que Google tiene en Github solo se encuentra el API usando la librería.
+El problema en esta parte es que si se tiene algún problema con el API Rest el código que dan de ejemplo es demasiado pequeño si se quiere realizar cosas complejas. Y en el código de ejemplo que Google tiene en \gls{Github} solo se encuentra el API usando la librería.
 Tanto si se usa la librería o si se decide uno por usar Rest, Google ha separado las funciones en apartados para que sea lo más cómodo posible encontrar lo que se necesita.
 
 Algo importante que hay que saber a la hora de programar con este API es que se necesita credenciales OAuth2 y credenciales públicas para que den permiso a la aplicación que se desarrolle a que use el API de Google Calendar.
@@ -161,7 +161,7 @@ Se decidió no meter alarmas en los exámenes porque eso obligaría al usuario a
 La necesidad del Backup es algo importante en cualquier aplicación en la que el usuario tiene que meter algún dato, a nadie le gusta perder información que ha estado gastando su tiempo escribiendo. Los móviles suelen romperse o estropearse y en esas situaciones perder todo supondría un grave problema, para esas situaciones una copia de seguridad es el mejor salvavidas.
 Para el Backup Google tiene opciones tales como las propias implementadas en Android el backup API, que aunque hemos separado las explicaciones en Google y Android, Google compró Android en 2005 y muchas funcionalidades que se pueden encontrar en Android están vinculadas con Google.
 
-Tambien tiene otras opciones más simples como puede ser usar una opción de respaldo en la nube de Google Drive, transparente para el usuario.
+Tambien tiene otras opciones más simples como puede ser usar una opción de respaldo en la nube de Google Drive\cite{GDrive}, transparente para el usuario.
 La primera opción la ventaja que tiene es que el usuario no tiene que realizar ningún paso para realizar la copia de seguridad, es el propio desarrollador quien prepara todo, pone la clave de la aplicación que se usa en todas los servicios Google para vincular la aplicación con el servicio y después el sistema realiza el backup donde el desarrollador lo escoja. Y Google guarda la información en la nube sin que el usuario pueda acceder a ella, solo se podrá acceder a esa información por medio de la aplicación que ha realizado el backup.
 
 \begin{figure}[H] 
@@ -225,7 +225,7 @@ Ahora se hablara de problemas más específicos con respecto al calendario y al 
 
 Un problema que no se pudo solucionar mediante código fue el problema de la sincronización de Google Calendar con el dispositivo móvil. La idea principal era que cuando se realizaban nuevos eventos en el calendario estos eventos se sincronizaran automaticamente con el calendario del dispositivo, si el Balduser no tenía activada la sincronización por tiempo y la tenía manual no le aparecería en su móvil a menos que le diera a sincronizar.
 Para solucionarlo se les comunicó como hacerlo a los Baldusers y los que lo vieron necesario lo usaron.
-Otro problema que se encontró al implementar las opciones de calendario fue el uso de la autenticación OAuth2 que requiere el API.
+Otro problema que se encontró al implementar las opciones de calendario fue el uso de la autenticación OAuth2 \cite{Oauth} que requiere el API.
 Las explicaciones eran muy confusas a la hora de configurar ya que las ventanas y las opciones que aparecían en la guía de Google eran de versiones anteriores a las configuraciones que tenía que realizar yo.
 La forma de solucionarlo fue viendo vídeos donde otros desarrolladores creaban credenciales para APIs de Google que requirieran ese tipo de credenciales y haciendo pruebas se consiguió que empezara a subir la cuota de uso.
 
@@ -239,7 +239,7 @@ Cuando se importó el proyecto todo era muy confuso y no se parecía a la forma 
 Aun y todo se miró el código, se entendió más o menos lo que hacía en cada función,  y se intentó sacar las funciones necesarias al caso de uso de Backup de Baldugenda.
 Cuando se sacaron las funciones y se comprobó que funcionaba la selección de ficheros por un lado y la subida de ficheros por otro se intentó juntar.
 
-El problema fue que Google al crear una carpeta mediante el activity que dan de ejemplo pasa un tiempo hasta poder usar el identificador de esa carpeta. Y eso producía un fallo en el código ya que al intentar subir a una carpeta que no tenía identificador fallaba el programa.
+El problema fue que Google al crear una carpeta mediante el \gls{activity} que dan de ejemplo pasa un tiempo hasta poder usar el identificador de esa carpeta. Y eso producía un fallo en el código ya que al intentar subir a una carpeta que no tenía identificador fallaba el programa.
 La solución fue separar por una parte la selección de la carpeta y por otra la subida del fichero, con eso se le daba tiempo a Google a que generara el identificador y de paso el usuario podía comprobar que la carpeta se había seleccionado correctamente.
 Antes de optar por esa solución se pensó usar las preferencias de la aplicación para guardar la dirección donde se guardaba la carpeta y de esa manera poder realizar backups periódicos sin depender del usuario, pero el problema seguía siendo el mismo así que se descartó esa opción.
 

@@ -81,4 +81,5 @@
 \contentsline {section}{\numberline {8.3}Experiencia personal}{97}{section.8.3}
 \contentsline {chapter}{\numberline {9}Propuestas de extension y mejoras futuras}{99}{chapter.9}
 \contentsline {section}{\numberline {9.1}Propuestas de extensi\IeC {\'o}n}{100}{section.9.1}
-\contentsline {section}{\numberline {9.2}Propuestas de mejora}{101}{section.9.2}
+\contentsline {chapter}{Bibliograf\'{\i }a}{101}{chapter*.41}
+\contentsline {chapter}{Glosario}{103}{section*.42}

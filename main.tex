@@ -13,10 +13,6 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 \usetikzlibrary{babel}
-\usepackage[xindy]{glossaries}
-
-
-
 % \newcommand{\euskaraz}{eu} % Comentar para castellano
 
 % Nota Importante: En el caso de castellano, la codificación de los archivos
@@ -26,13 +22,8 @@
 
 \ifdefined\euskaraz
 	 \newcommand{\espezialitatea}{Software Ingeniaritza}
-	%\newcommand{\espezialitatea}{konputagailuen Ingeniaritza}
-	% \newcommand{\espezialitatea}{Konputazioa}
-	
 \else
 	\newcommand{\espezialitatea}{Ingeniería del Software}
-	% \newcommand{\espezialitatea}{Ingeniería de Computadores}
-	% \newcommand{\espezialitatea}{Computación}
 \fi
 
 
@@ -42,16 +33,10 @@
 
 \begin{document}
 \frontmatter
-% \maketitle
 \input{template/cover}
 \cleardoublepage
 
-
-%\input{0-abstract}
 \cleardoublepage
-
-% Remove parskip for toc
-% \setlength{\parskip}{0ex plus 0.5ex minus 0.2ex}
 
 \setcounter{tocdepth}{3}	% Titles level degree at table of contents
 \tableofcontents			% Show a table of contents
@@ -75,10 +60,7 @@
 \mainmatter
 \input{1-intro}
 \input{2-objetivos-es}
-%\input{3-development}
-
 \ifdefined\euskaraz
-%\input{4-examples-eu}
 \else
 \input{52-ciclos-es}
 \input{53-usuarios-es}
@@ -88,6 +70,8 @@
 \input{9-conclusions}
 \input{10-propuestas-es}
 
+
+\fi
 %\noappendicestocpagenum
 %\appendixpage
 %\addappheadtotoc
@@ -105,13 +89,15 @@
 % \input{A-appendix}
 
 \backmatter
-
 \bibliography{gap-pfg}
+
 
 % In case we are using a glossary
  \glstoctrue
- \glsaddall
- \printglossaries
+ %\glsaddall
+ %\printglossaries
+ \printglossary
+ \printglossary[type=\acronymtype]
 
 \end{document}
 % line in order to check if utf-8 is properly configured: áéíóúñ
