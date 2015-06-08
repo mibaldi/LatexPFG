@@ -14,6 +14,8 @@
 \glossentry{dispositivo movil}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
 \glsgroupheading{G}\relax \glsresetentrylist %
+\glossentry{Git}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{103}}}%
 \glossentry{Github}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{54}}}%
 \end{theglossary}\glossarypostamble
