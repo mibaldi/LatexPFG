@@ -2,6 +2,7 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{A}\relax \glsresetentrylist %
 \glossentry{activity}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{63}}}%
 \glossentry{Android Studio}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{50}}}\glsgroupskip
