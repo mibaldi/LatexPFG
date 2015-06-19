@@ -2,7 +2,7 @@
 Este capítulo se ha dividido en tres partes, en la primera se hablará del punto de partida donde comenzó el proyecto. En la segunda parte, se detallarán el alcance y las tecnologías usadas. Y para finalizar, se hará un repaso de las exclusiones que se han identificado dentro del proyecto.
 \section{Antecedentes del proyecto}
 \label{secc:Antecedentes}
-Es común que durante la etapa de la universidad la organización sea un factor muy importante. El tema de la organización para muchos estudiantes suele ser molesta, ya que no les gusta estar apuntando cada cosa que tienen que realizar, ya sean exámenes, notas, horarios, etc, prefieren hacer uso de su memoria y apuntar todo lo que tienen que hacer al cabo del día. Por este motivo, se planteó hacer una aplicación de móvil para evitar tener que estar llevando la agenda siempre encima y poder usar la memoria para las asignaturas de la carrera.
+Es común que durante la etapa de la universidad la organización sea un factor muy importante. El tema de la organización para muchos estudiantes suele ser molesta, ya que no les gusta estar apuntando cada tarea que tienen que realizar, ya sean exámenes, notas, horarios, etc, prefieren hacer uso de su memoria y apuntar todo lo que tienen que hacer al cabo del día. Por este motivo, se planteó hacer una aplicación de móvil para evitar tener que estar llevando la agenda siempre encima y poder usar la memoria para las asignaturas de la carrera.
 El motivo por el que se fue a desarrollar una aplicación para Android, era aprender más sobre las tecnologías móviles y el desarrollo de un proyecto con usuarios. En la carrera ya se comenzó a impartir algunos trabajos para fomentar el desarrollo con Android, por esto se decidió seguir formándose en ese sistema.
 
 El área de los Smartphones cada vez tiene más fuerza en la sociedad, y es raro no ver a gente por la calle escuchando música con su móvil o chateando. Se quiso juntar la idea presentada antes de la organización junto con los dispositivos móviles. En ese momento surgió la idea de crear una agenda universitaria dentro del móvil. Los usuarios podrían llevar siempre los exámenes al día y tenerlos accesibles sin tener que estar cargando con apuntes y cuadernos.
@@ -36,7 +36,7 @@ A continuación se detallan los problemas a los que Baldugenda ha dado solución
 El desarrollo de las aplicaciones creadas se ha realizado de la siguiente manera:
 
 \begin{enumerate}
-	\item Existirá un cliente nativo para dispositivos Android, dicho cliente estará accesible mediante el Play Store de Google.
+	\item Existirá un cliente nativo para dispositivos Android, dicho cliente estará accesible mediante el Play Store de Google con el nombre \href{https://play.google.com/store/apps/details?id=com.mikel.agenda&hl=es}{Baldugenda}.
 	\item La aplicación Android podrá ejecutarse a partir de la versión 2.3.3 de este sistema operativo, que a fecha de finalización de esta memoria los dispositivos con esta versión suponen el 99\% del total. Si se quiere usar todo las funcionalidades de la aplicación se necesitará disponer de conexión a Internet.
 	\item Las implementaciones se realizarán dando prioridad a tecnologías ya conocidas y con las que se ha trabajado anteriormente.
 	\item Se usarán las cuentas de Google vinculadas a los servicios de Google Calendar y Google Drive para acceder a la información que precise la aplicación. Si fuera necesario realizar funcionalidades nuevas se usarían servicios de Google para compatibilizar los ya implementados.
@@ -55,4 +55,24 @@ Se han excluido del alcance del proyecto los siguientes puntos:
 	\item El desarrollo de cliente distinto a Android.
 	\item La implementación de un módulo propio para la autenticación de los usuarios, que se ha delegado en un servicio externo.
 \end{enumerate}
+\newpage
+\section{Objetivo en imágenes}
+\label{secc:Objetivo en imágenes}
+
+En las imágenes de la izquierda vemos como el Balduser intenta llevar al día los exámenes sin utilizar ningún tipo de tecnología especial exceptuando el papel y el bolígrafo, por ello se ve afectado al tener que realizar modificaciones que eran imprevistas.
+
+En las imágenes de la derecha vemos al Balduser usando la aplicación en su dispositivo móvil, lo cual le permite organizar su agenda universitaria mas fácilmente.
+
+\begin{figure} [H]
+\captionsetup[subfigure]{labelformat=empty}
+ \centering
+\begin{tabular}{c|c}
+  \subfloat[]{\includegraphics[width=0.5\textwidth]{figs/sin1_opt.png}} & 
+  \subfloat[]{\includegraphics[width=0.5\textwidth]{figs/con1_opt.png}}\\
+  \subfloat[]{\includegraphics[width=0.5\textwidth]{figs/sin2_opt.png}} & 
+  \subfloat[]{\includegraphics[width=0.5\textwidth]{figs/con2_opt.png}}
+  \end{tabular}
+ \caption{Objetivo en imágenes}
+ \label{f:Objetivo en imágenes}
+\end{figure}
 

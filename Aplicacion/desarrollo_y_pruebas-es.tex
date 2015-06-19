@@ -114,9 +114,29 @@ La lógica de negocio se encargará de descargar el fichero seleccionado de Goog
 \label{subsecc:Interacción con la app}
 
 Se realizaron pruebas a los Baldusers, y la mayoria realizaron las pruebas sin problemas, las respuestas que devolvieron eran que Baldugenda tenía una interfaz sencilla y de fácil manejo. Por este motivo, se puede suponer que el manejo de Baldugenda es sencillo, un ejemplo es que para acceder a la lista de asignaturas o a la lista de exámenes, sólo hace falta darle al icono del menú principal.
-Aparte de este menú, que se basó en una serie de iconos con títulos que explica para qué es cada icono, se pueden ver las listas de asignaturas y de exámenes, cada lista tiene cosas únicas que se han colocado para probar acciones dentro de una aplicación Android.
+Aparte de este menú, que se basó en una serie de iconos con títulos que explica para qué es cada icono, se pueden ver las listas de asignaturas y de exámenes, cada lista tiene aspectos únicos que se han colocado para probar acciones dentro de una aplicación Android.
 En la lista de asignaturas se puede encontrar un menú de búsqueda para que el usuario en el caso de que tenga muchas, al escribir el nombre de la asignatura en la caja de texto, le aparecería esa asignatura en la lista.
 
 Aparte, se añadió la opción de la pulsación larga en cada asignatura para poder editarla o borrarla.
 En la actividad de exámenes, se puede ver que la lista no es igual a la lista de asignaturas, se ha usado la clase ExpandableList para crear cajones donde debe ir la asignatura y los exámenes. Junto con el número de exámenes que hay dentro de la asignatura.
 Se ha modificado el botón de atrás dentro de la actividad lista exámenes para que muestre un menú de navegación lateral para poder ir a cualquiera de las actividades mostradas. Se les preguntó a los Baldusers si les parecía buena idea el menú, y si era necesario incluirlo en cada una de las actividades, no respondieron al respecto. Por este motivo se decidió dejarlo únicamente en la actividad de lista exámenes para posibles mejoras.
+
+\subsection{Android Studio}
+\label{subsecc:androidStudio}
+
+Para la implementación de Baldugenda se usó el IDE Android Studio, ya se había trabajado anteriormente con esta IDE, pero no se había implementado un proyecto como éste, ya que Baldugenda requería la implementacion de software realizado por terceros y para poder subirlo al Play Store se necesitaba firmar el apk que se generase. 
+
+Android Studio ofrece ventajas frente a Eclipse, ya que desde hace pocos meses la comunidad de desarrolladores de Android le han dado más importancia al IDE de Android Studio y han dejado de lado a Eclipse. Eclipse al no ser un IDE exclusivo para Android, las funcionalidades que requerían las aplicaciones se solventaban mediante plugins, ocasionando fallos de compatibilidad de versiones.
+\newpage
+\subsection{Google Play Store}
+\label{subsecc:Google Play Store}
+
+Se uso el Play Store de Google para distribuir la aplicación a los usuarios que quisieran descargarsela. Para ello se tuvo que rellenar una serie de formularios y subir distintas capturas de la aplicación. Una vez subida al Play Store y activando la fase de producción el resultado es el siguiente.
+
+\begin{figure}[H] 
+  \begin{center} 
+    \scalebox{0.4}{\includegraphics{figs/subida.png}} 
+    \caption{Baldugenda en Play Store} 
+    \label{fig:ModeloMVC} 
+  \end{center} 
+\end{figure}

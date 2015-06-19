@@ -1,6 +1,6 @@
 \section{Análisis y diseño}
 \label{secc:análisis y diseño}
-Se han dividido el apartado de análisis y diseño en 5 apartados donde se podrá encontrar la arquitectura usada y un pequeño análisis de alternativas vistas, después estarán los casos de uso de la versión del último ciclo de Baldugenda. También habrá una sección donde se detalla el modelo de datos usado, para posteriormente hablar sobre las interfaces de usuario y para terminar en un análisis de diseño. 
+Se han dividido el apartado de análisis y diseño en 5 apartados donde se podrá encontrar la arquitectura usada y un pequeño análisis de alternativas vistas, después estarán los casos de uso de la versión de la última fase de Baldugenda. También habrá una sección donde se detalla el modelo de datos usado, para posteriormente hablar sobre las interfaces de usuario y para terminar en un análisis de diseño. 
 \subsection{Arquitectura}
 \label{subsecc:arquitectura}
 
@@ -76,7 +76,7 @@ Al decir que sí el usuario, la asignatura se borrará o devolverá un mensaje d
 Sólo se permite borrar asignatura que no tengan exámenes dentro, esto se decidió así ya que si no, supondría un borrado en cascada, y el coste que produciría eso sería muy elevado ya que también se tendrían que borrar los eventos en el calendario de Google de todos los exámenes de esa asignatura.
 
 
-\begin{figure}[H]
+\begin{figure}
  \centering
   \subfloat[Borrado en Asignatura]{
    \label{f:Borrado en Asignatura}
@@ -162,7 +162,7 @@ La aplicación Android guarda los datos en el dispositivo, tanto la base de dato
 Los datos que se guardan como preferencias son los relativos a la autenticación y los ajustes. El encargado de almacenar esta información es el método SharedPreferences de Android, almacena la información en formato XML.
 
 
-\begin{figure}[H]
+\begin{figure}
   \begin{center} 
     \scalebox{0.8}{\includegraphics{figs/modeloRelacional.png}} 
     \caption{Modelo relacional} 
@@ -282,13 +282,22 @@ Es la actividad que muestra los valores que tiene el examen escogido y nos permi
 
 \subsection{Opciones adicionales de diseño}
 \label{subsecc:Opciones adicionales de diseño}
+Para el desarrollo de la app se ha seguido un desarrollo por etapas y se ha optado por el uso de testers para probar la aplicación, y que ellos digan qué casos de uso añadirían y qué modificarían de la aplicación.
+Las etapas han durado alrededor de un mes cada una de ellas y en cada nueva etapa se añadía a más personas para que probara la aplicación e hicieran comentarios.
+Hay fases bien marcadas como pueden ser la fase de análisis de requisitos y la del diseño inicial. Ademas tenemos las fases de diseño detallado, en esta fase realizamos las pruebas con los usuarios y vemos las modificaciones que piden.
+\subsubsection{Permisos}
+\label{Permisos}
 
 Para esta aplicación se le ha dado importancia al uso de los permisos, no abusar de ellos era una de las prioridades.
 En la app se piden los permisos únicos y necesarios para la conexión a Internet ademas del acceso al manejo de cuentas y calendarios en el dispositivo.
 Muchas aplicaciones abusan de estos permisos, y se piden aunque en realidad no se use, porque es más fácil no tener que estar revisando los permisos que se necesitan a cada momento.
-Para el desarrollo de la app se ha seguido un desarrollo por etapas y se ha optado por el uso de examinadores para probar la aplicación, y que ellos digan qué casos de uso añadirían y qué modificarían de la aplicación.
-Las etapas han durado alrededor de un mes cada una de ellas y en cada nueva etapa se añadía a más personas para que probara la aplicación e hicieran comentarios.
-Hay fases bien marcadas como pueden ser la fase de análisis de requisitos y la del diseño inicial. Ademas tenemos las fases de diseño detallado, en esta fase realizamos las pruebas con los usuarios y vemos las modificaciones que piden.
+Al trabajar con el modelo explicado anteriormente, se pudo ver que los usuarios no tenían confianza de otorgar permisos en sus cuentas aunque supieran que no se les iba a hacer nada.
+
+\subsubsection{API}
+\label{API}
+
+Un aspecto que cabe destacar de Baldugenda es el uso de APIs por parte de Google y de terceros, este tema tiene relevancia en las aplicaciones para las que quiero desarrollar, ya que un uso de las APIs supone una relación entre distintas aplicaciones, y hace que sea mas interesante para el usuario.
+Las APIs usadas en Baldugenda fueron: Google Calendar y Google Drive por parte de Google, y Splunk Mint por parte de terceros. Su uso no fue sencillo, aunque una vez implementada la primera API de Google, su conocimiento representó el poder implementar APIs diferentes de Google, ya que tenían funcionamiento parecido.   
 
 
 % Mediante los siguientes comandos, podrás compilar el conjunto de ficheros desde este mismo documento

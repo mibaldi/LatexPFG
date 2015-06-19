@@ -153,7 +153,7 @@ Para ello ha ideado una API estilo diccionario para ver las equivalencias entre 
 Entre IOS y Android no es tan fácil la migración. Los dos son empresas muy fuertes en el mercado de los móviles y no darían su brazo a torcer para ayudar a su competidora.
 Pero algo positivo que tiene trabajar con un modelo MVC es que cada apartado está separado.
 El modelo se podría trasladar directamente a IOS y la parte de la vista y controlador se podría distribuir entre más personas para desarrollar sobre el ejemplo de Android.
-Cuando se habla de migraciones siempre viene a la cabeza el cambio de sistema operativo y aspectos así, pero también una migración podría ser el salto de una aplicación móvil a un dispositivo wear de Android o a una pantalla de televisión. Para eso, el cambio vendría a ser muy parecido pero pudiendo usar gran parte del código exceptuando cosas como la parte de la vista y la conexión entre la vista y la lógica.
+Cuando se habla de migraciones siempre viene a la cabeza el cambio de sistema operativo y aspectos así, pero también una migración podría ser el salto de una aplicación móvil a un dispositivo wear de Android o a una pantalla de televisión. Para eso, el cambio vendría a ser muy parecido pero pudiendo usar gran parte del código exceptuando la parte de la vista y la conexión entre la vista y la lógica.
 
 Un punto importante que hay que tener en cuenta a la hora de migrar no es solo instalar la aplicación en un nuevo dispositivo, hay que pensar en los usuarios y permitirles llevarse todo lo realizado hasta el momento de la aplicación anterior a la nueva.
 Hay aplicaciones que guardan la información en sus propios servidores, y ese paso es transparente para el usuario.
@@ -249,7 +249,7 @@ Por falta de tiempo no se realizó, aunque sí se tenían propuestas librerías 
 Aún y todo se seguiría usando Google Calendar para mantener consistencia a los calendarios del usuario, y que tenga acceso siempre a los eventos que se generan dentro del móvil.
 Android ofrece su propio componente de vista de calendario, el Calendar view, el problema que se encontró al usarlo es las limitaciones visuales que tiene, se buscaba al usar esa vista, mostrar los exámenes que había en el mes, y con Calendar view no se podía agregar eventos a los días del calendario.
 
-Por ese motivo, se decidió dejar el tema de la vista del calendario como algo secundario y centrarse en cosas más importantes como el backup.
+Por ese motivo, se decidió dejar el tema de la vista del calendario como algo secundario y centrarse en funcionalidades más importantes como el backup.
 Se ha probado a instalar muchas aplicaciones que tienen la finalidad de guardar asignaturas y exámenes en el móvil, junto con sus fechas, pero el resultado siempre era el mismo exceptuando alguna que era de pago, y que en su versión gratuita no permitía hacerlo, pero en la versión de pago sí. Las demás aplicaciones funcionaban en local y algunas daban la posibilidad de exportar los calendarios a la tarjeta sd del móvil por si quería usarlos.
 De esta forma se propuso la idea de vincular Google Calendar a la aplicación y darle un toque novedoso.
 
@@ -275,7 +275,7 @@ Una de las funciones es onPreExecute, si se implementa, es la función que se re
 En la función anterior es donde se suele generar el progresdialog.
 
 Después, si se quiere modificar los valores de la UI de la actividad estando desde el asynctask, se necesita recurrir a dos funciones, publishProgress y onProgressUpdate.
-Esas dos funciones serán las encargadas de ir modificando el valor, y pasando los datos que quieren que se muestre en cada momento en la ventana de progreso que se ha lanzado en la función onPreExecute, también pueden usarse para modificar cosas que tengan que ver con la UI principal.
+Esas dos funciones serán las encargadas de ir modificando el valor, y pasando los datos que quieren que se muestre en cada momento en la ventana de progreso que se ha lanzado en la función onPreExecute, también pueden usarse para modificar información que tengan que ver con la UI principal.
 Y para terminar, una de las funciones que más se usa es la de onPostExecute, esta función es la que se lanzará cuando se ha terminado  la función doInBackground, si se ha añadido el progres dialog hay que quitar el objeto en este punto ya que sino, no se podrá tocar de nuevo la pantalla de la actividad principal.
 A continuación se muestra el ciclo de vida de una asynctask
 
@@ -303,7 +303,7 @@ Lo que se vio como una buena oportunidad era juntar el uso de un API de Google j
 \subsection{Debugging}
 \label{subsecc:Debugging}
 
-Cuando se está desarrollando cualquier proyecto, la mejor manera de ver si funcionan las cosas es probándolas, en el caso de Android es una de las mejores opciones para que todo funcione como se espera.
+Cuando se está desarrollando cualquier proyecto, la mejor manera de ver si funcionan las implementaciones es probándolas, en el caso de Android es una de las mejores opciones para que todo funcione como se espera.
 Los dispositivos móviles tienen muchas variables que pueden afectar a la aplicación, las versiones o la pantalla son las más generales. Pero no son las únicas, el acceso a Internet para una aplicación que tiene que estar sincronizada a los calendarios del usuario es un factor determinante para que vaya bien.
 
 La posición en la que se use el dispositivo suele ser un tema complicado de llevar, por eso el apartado de debugging es de los temas más importantes que hay que realizar a la hora de querer publicar una aplicación en el Google Play.
@@ -386,7 +386,7 @@ Cuando se está implementando código, una buena forma de hacerlo es ir subiendo
 La forma de ver el repositorio tiene que ser un lugar donde guardar el código que ya se ha probado y que funciona, y poco a poco ir aumentándolo hasta tener un programa consistente que aunque dé fallos en ciertos momentos, por lo menos son fallos de las últimas modificaciones realizadas.
 También se puede ver cómo una manera de acceder al código sin tener que llevarlo siempre en el USB, puedes estar trabajando en el ordenador de la facultad y cuando se acaba subirlo al repositorio, al llegar a casa descargarlo y seguir trabajando.
 
-En la situación de Baldugenda no era preciso usar Github como método de trabajo en equipo ya que el equipo estaba formado por una sola persona, pero aún y todo, era una buena forma de llevar al día el tiempo que había llevado hacer cada implementación y que se había ido haciendo en cada ciclo del proyecto.
+En la situación de Baldugenda no era preciso usar Github como método de trabajo en equipo ya que el equipo estaba formado por una sola persona, pero aún y todo, era una buena forma de llevar al día el tiempo que había llevado hacer cada implementación y que se había ido haciendo en cada fase del proyecto.
 Si una aplicación la van a realizar más personas, es casi imprescindible el uso de herramientas como Github, ya que no se puede estar exportando el proyecto y compartiéndolo por correo con cada modificación que se haga, porque se produciría una confusión enorme.
 
 Un problema de usar Github es que todos los miembros del equipo tienen que saber usarlo, sino puede llevar a problemas de código corrupto al subirse, o fallos que no permitirían subir el código. Pero una vez aprendido a usar Github, el uso que se le puede dar es enorme, ahora permite crear páginas web explicando el proyecto que está subido y permite que otros se lo descarguen o que hagan copias del proyecto en sus repositorios.
@@ -407,7 +407,7 @@ Si se es nuevo con Android, como era yo al empezar la aplicación, no se conoce 
 
 Acostumbrado a realizar las llamadas de los servicios web donde quisiera, un error fue meterlo directamente en el hilo principal de la aplicación, al ejecutar la aplicación se bloqueaba, y el debugging llevaba a unas clases creadas por Android.
 Buscando por Internet explicaban que en Android toda acción que haga que la pantalla se bloquee durante un tiempo no estaba permitida hacerla en el hilo principal de la actividad.
-Ese descubrimiento fue muy útil, ya que con eso aprendí  muchas cosas sobre los hilos en Android y las tareas asíncronas.
+Ese descubrimiento fue muy útil, ya que con eso aprendí  mucho sobre los hilos en Android y las tareas asíncronas.
 
 Antes se ha hablado del uso de máquinas virtuales, uno de los problemas que tiene usar máquinas virtuales son los recursos del ordenador físico que las está moviendo. En más de una ocasión se ha quedado el ordenador sin memoria por tener el Android Studio y la máquina virtual abierta, el único consejo que hay al respecto es intentar no usar máquinas virtuales muy pesadas, cuanto más alta es la API y mayores recursos se le asignan a la máquina más pesada es, y más va a exigir.
 Android Studio es un IDE potente para desarrollar una aplicación Android, el problema de esto es que al ser potente también exige mucho. Si se quiere desarrollar en Android se necesita un equipo que tenga suficiente memoria para no quedarse esperando porque se ha quedado parado al compilar el Gradle.
